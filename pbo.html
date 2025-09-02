@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daftar Turnamen Free Fire</h1>
+        <form id="FormSaya">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="namaTim">Nama Tim:</label>
+            <input type="text" id="namaTim" name="namaTim">
+
+            <label for="usia">Usia:</label>
+            <input type="number" id="usia" name="usia" required>
+
+            <label for="sekolah">Sekolah:</label>
+            <input type="text" id="sekolah" name="sekolah" required>
+
+            <label for="alamatSekolah">Alamat Sekolah:</label>
+            <textarea id="alamatSekolah" name="alamatSekolah" rows="3"></textarea>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="tanggalPendaftaran">Tanggal Pendaftaran:</label>
+            <input type="date" id="tanggalPendaftaran" name="tanggalPendaftaran" required>
+
+            <button type="submit">Kirim</button>
+        </form>
+
+        <div id="gatau" style="display:none;"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById("FormSaya");
+        const hasil = document.getElementById("gatau");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value;
+            const namaTim = document.getElementById("namaTim").value;
+            const usia = document.getElementById("usia").value;
+            const sekolah = document.getElementById("sekolah").value;
+            const alamatSekolah = document.getElementById("alamatSekolah").value;
+            const email = document.getElementById("email").value;
+            const tanggalPendaftaran = document.getElementById("tanggalPendaftaran").value;
+
+            hasil.style.display = "block";
+            hasil.innerHTML = `
+                <h2>Data Pendaftar</h2>
+                <p><b>Nama:</b> ${nama}</p>
+                <p><b>Nama Tim:</b> ${namaTim}</p>
+                <p><b>Usia:</b> ${usia}</p>
+                <p><b>Sekolah:</b> ${sekolah}</p>
+                <p><b>Alamat Sekolah:</b> ${alamatSekolah}</p>
+                <p><b>Email:</b> ${email}</p>
+                <p><b>Tanggal Pendaftaran:</b> ${tanggalPendaftaran}</p>
+            `;
+        });
+    </script>
+</body>
+</html>
